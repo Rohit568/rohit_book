@@ -22,7 +22,6 @@
         android:text="Switch to next"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
-
         />
 
 </RelativeLayout>

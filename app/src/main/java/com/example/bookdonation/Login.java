@@ -16,25 +16,25 @@ public class Login extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_login);
 
-//        rbutton = (Button)findViewById(R.id.register);
-//        lbutton = (Button)findViewById(R.id.login);
-//
-//        rbutton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v)
-//            {
-//                // starting background task to update product
-//                Intent fp=new Intent(Login.this,Register.class);
-//                startActivity(fp);
-//            }
-//        });
-//
-//        lbutton.setOnClickListener(new View.OnClickListener() {
-//            public void onClick(View v)
-//            {
-//                // starting background task to update product
-//                Intent fp=new Intent(Login.this,MainActivity.class);
-//                startActivity(fp);
-//            }
-//        });
+        rbutton = (Button)findViewById(R.id.register);
+       lbutton = (Button)findViewById(R.id.login);
+
+        rbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                // starting background task to update product
+                Intent fp=new Intent(Login.this,Register.class);
+                startActivity(fp);
+            }
+        });
+
+        lbutton.setOnClickListener(new View.OnClickListener() {
+            public void onClick(View v)
+            {
+                // starting background task to update product
+                Intent fp=new Intent(Login.this,MainActivity.class);
+                startActivity(fp);
+            }
+       });
     }
 }

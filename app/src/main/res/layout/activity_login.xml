@@ -11,10 +11,10 @@
         android:id="@+id/phone_number"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:background="@drawable/input_design"
+        android:layout_marginLeft="20dp"
         android:layout_marginTop="250dp"
         android:layout_marginRight="20dp"
-        android:layout_marginLeft="20dp"
+        android:background="@drawable/input_design"
         android:hint="Phone Number"
         android:inputType="number"
         android:padding="20dp"
@@ -30,9 +30,9 @@
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/phone_number"
-        android:layout_marginTop="50dp"
-        android:layout_marginRight="20dp"
         android:layout_marginLeft="20dp"
+        android:layout_marginTop="34dp"
+        android:layout_marginRight="20dp"
 
         android:background="@drawable/input_design"
         android:hint="Password"
@@ -45,6 +45,7 @@
         app:layout_constraintEnd_toEndOf="@+id/phone_number"
         app:layout_constraintStart_toStartOf="parent"
         app:layout_constraintTop_toTopOf="@+id/phone_number" />
+
 
     <Button
         android:id="@+id/login"

@@ -75,7 +75,7 @@
         tools:layout_editor_absoluteY="262dp" />
 
     <EditText
-        android:id="@+id/pwd"
+        android:id="@+id/pwd2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:background="@drawable/input_design"
@@ -93,12 +93,8 @@
 
 
 
-
-
-
-
     <Button
-        android:id="@+id/register"
+        android:id="@+id/register2"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_alignParentStart="true"

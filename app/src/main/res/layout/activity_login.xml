@@ -1,9 +1,10 @@
 <?xml version="1.0" encoding="utf-8"?>
-<RelativeLayout xmlns:android="http://schemas.android.com/apk/res/android"
+<LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:padding="40dp"
+    android:orientation="vertical"
     android:layout_height="match_parent"
     android:background="@android:color/white"
     tools:context=".Login">
@@ -14,13 +15,12 @@
         android:layout_height="wrap_content"
         android:background="@drawable/input_design"
         android:layout_margin="15dp"
-        android:hint="Address"
+        android:hint="Email Id"
         android:inputType="text"
         android:padding="15dp"
         android:textColor="@color/colorAccent"
         android:textColorHint="@color/colorAccent"
         android:textSize="18sp"
-        android:textStyle="bold"
         tools:layout_editor_absoluteX="-62dp"
         tools:layout_editor_absoluteY="262dp" />
 
@@ -33,13 +33,12 @@
         android:background="@drawable/input_design"
         android:layout_below="@id/LoginMail"
         android:layout_margin="15dp"
-        android:hint="Address"
+        android:hint="Password"
         android:inputType="textPassword"
         android:padding="15dp"
         android:textColor="@color/colorAccent"
         android:textColorHint="@color/colorAccent"
         android:textSize="18sp"
-        android:textStyle="bold"
         tools:layout_editor_absoluteX="-62dp"
         tools:layout_editor_absoluteY="262dp" />
 
@@ -48,16 +47,11 @@
         android:id="@+id/loginButton"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="44dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="339dp"
         android:background="@drawable/btn"
-        android:padding="20dp"
+        android:layout_margin="20dp"
         android:text="Log In"
         android:textAllCaps="false"
+        android:padding="15dp"
         android:textColor="@android:color/white"
         android:textStyle="bold"
         android:gravity="center_vertical"/>
@@ -66,18 +60,12 @@
         android:id="@+id/createAccount"
         android:layout_width="match_parent"
         android:layout_height="wrap_content"
-        android:layout_alignParentStart="true"
-        android:layout_alignParentBottom="true"
-        android:layout_marginStart="85dp"
-        android:layout_marginLeft="15dp"
-        android:layout_marginRight="15dp"
-        android:layout_marginBottom="244dp"
         android:background="@drawable/btn"
         android:gravity="center_vertical"
-        android:padding="20dp"
+        android:layout_marginTop="20dp"
         android:text="Create Account"
         android:textAllCaps="false"
         android:textColor="@android:color/white"
         android:textStyle="bold" />
 
-</RelativeLayout>
+</LinearLayout>

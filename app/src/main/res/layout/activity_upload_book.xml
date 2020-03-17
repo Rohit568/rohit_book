@@ -4,7 +4,7 @@
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
     android:layout_height="match_parent"
-    android:padding="16dp"
+    android:padding="20dp"
     android:background="@android:color/white"
     android:orientation="vertical"
     tools:context=".UploadBook">
@@ -12,29 +12,29 @@
 
     <EditText
         android:id="@+id/filename"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:layout_marginTop="2dp"
         android:textColor="@android:color/black"
         android:background="@drawable/input_design"
-        android:hint="Enter file Name"
+        android:hint="Enter Books'Name"
         android:padding="10dp"
         android:textSize="18sp"
         android:textColorHint="@color/colorPrimary"/>
 
     <EditText
         android:id="@+id/mob_num"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="40dp"
         android:background="@drawable/input_design"
-        android:hint="Enter Mobile Number"
+        android:hint="Enter your Mobile Number"
         android:padding="10dp"
         android:textColor="@android:color/black"
         android:textColorHint="@color/colorPrimary"
         android:textSize="18sp" />
     <Button
         android:id="@+id/chooseButton"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@id/filename"
         android:layout_marginTop="10dp"
@@ -63,7 +63,7 @@
         android:visibility="invisible" />
     <Button
         android:id="@+id/uploadButton"
-        android:layout_width="350dp"
+        android:layout_width="match_parent"
         android:layout_height="wrap_content"
         android:layout_below="@+id/image"
         android:layout_marginTop="2dp"

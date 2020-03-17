@@ -81,11 +81,14 @@ public class UploadBook extends AppCompatActivity {
         mChooseButton.setEnabled(false);
         mUploadButton.setEnabled(false);
         mImageName.setEnabled(false);
+        mmob.setEnabled(false);
     }
     private  void enableAll(){
         mChooseButton.setEnabled(true);
         mUploadButton.setEnabled(true);
         mImageName.setEnabled(true);
+        mmob.setEnabled(true);
+
 
     }
     private void uploadfile() {

@@ -9,8 +9,8 @@
     <application
         android:allowBackup="true"
         android:icon="@mipmap/ic_launcher"
-        android:label="Book Donation"
-        android:roundIcon="@mipmap/ic_launcher_round"
+        android:label="Daan Book"
+        android:roundIcon="@mipmap/ic_launcher_foreground"
         android:supportsRtl="true"
         android:theme="@style/Theme.AppCompat"
         tools:ignore="GoogleAppIndexingWarning">

@@ -6,8 +6,10 @@ import androidx.appcompat.app.AppCompatActivity;
 import android.app.ProgressDialog;
 import android.content.ContentResolver;
 import android.content.Intent;
+import android.graphics.Bitmap;
 import android.net.Uri;
 import android.os.Bundle;
+import android.provider.MediaStore;
 import android.util.Log;
 import android.view.View;
 import android.webkit.MimeTypeMap;
@@ -19,6 +21,7 @@ import android.widget.Toast;
 
 import com.google.android.gms.tasks.OnFailureListener;
 import com.google.android.gms.tasks.OnSuccessListener;
+import com.google.android.gms.tasks.Task;
 import com.google.firebase.auth.FirebaseAuth;
 import com.google.firebase.database.DatabaseReference;
 import com.google.firebase.database.FirebaseDatabase;
@@ -89,7 +92,6 @@ public class UploadBook extends AppCompatActivity {
         mImageName.setEnabled(true);
         mmob.setEnabled(true);
 
-
     }
     private void uploadfile() {
         mobi_num=mmob.getText().toString();
@@ -106,15 +108,17 @@ public class UploadBook extends AppCompatActivity {
                             @Override
                             public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
                                 // Get a URL to the uploaded content
-                                //   Uri downloadUrl = taskSnapshot.getDownloadUrl();
+                                Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+                                while (!downloadUrl.isSuccessful());
+                                Uri downloadUrl2 = downloadUrl.getResult();
                                 Toast
                                         .makeText(UploadBook.this,
                                                 "Image Uploaded!!",
                                                 Toast.LENGTH_SHORT)
                                         .show();
-                                String uid=FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
+                                //String uid=FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
                                 String dbref= FirebaseDatabase.getInstance().getReference("images").push().getKey();
-                                Upload up_obj=new Upload(title,riversRef.toString(),uid,mobi_num);
+                                Upload up_obj=new Upload(title,downloadUrl2.toString(),mobi_num);
                                 FirebaseDatabase.getInstance().getReference("images").child(dbref).setValue(up_obj);
                                 progressBar.setVisibility(View.INVISIBLE);
                                 enableAll();
@@ -154,8 +158,5 @@ public class UploadBook extends AppCompatActivity {
             mImage.setImageURI(mImageUri);
         }
     }
-
-
-
 
 }

@@ -20,7 +20,7 @@
         android:hint="Enter Books'Name"
         android:padding="10dp"
         android:textSize="18sp"
-        android:textColorHint="@color/colorPrimary"/>
+        android:textColorHint="@color/colorAccent"/>
 
     <EditText
         android:id="@+id/mob_num"

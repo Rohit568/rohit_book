@@ -1,29 +1,48 @@
 package com.example.bookdonation;
 
+import java.util.jar.Attributes;
+
 public class Upload {
 
 
-    public String Name;
-     public String ImageUrl;
-     public String User;
-     public String phone_no;
+    String Name;
+    String ImageUrl;
+    String phone_no;
 
-    public Upload()
-    {
+    public Upload() {
 
     }
-    public Upload(String name,String images, String  user,String phone_no)
-    {
-        if(name.trim().equals(""))
-        {
+
+    public Upload(String name, String images, String phon) {
+        if (name.trim().equals("")) {
             name = "No name";
         }
         Name = name;
         ImageUrl = images;
-        this.User = user;
-        this.phone_no= phone_no;
+        this.phone_no = phon;
+    }
 
+    public String getName() {
+        return Name;
     }
 
 
+    public String getImageUrl() {
+        return ImageUrl;
+    }
+
+
+    public String getPhone_No() {
+        return phone_no;
+    }
+
+    public void setName(String name) {
+        Name = name;
+    }
+
+    public void setImageUrl(String imageUrl) {
+        ImageUrl = imageUrl;
+    }
 }
+
+

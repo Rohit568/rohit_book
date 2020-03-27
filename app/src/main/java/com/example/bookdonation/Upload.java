@@ -40,6 +40,8 @@ public class Upload {
         Name = name;
     }
 
+
+
     public void setImageUrl(String imageUrl) {
         ImageUrl = imageUrl;
     }

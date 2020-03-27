@@ -57,7 +57,7 @@ public class Register extends AppCompatActivity {
                 String Password=password.getText().toString().trim();
                 Toast.makeText(Register.this, "onclick", Toast.LENGTH_SHORT).show();
                 Log.d(TAG, "3createUserWithEmail:success");
-                UserDetails user_data=new UserDetails(Fullname, Address, Phone, Email);
+                UserDetails user_data=new UserDetails(Fullname, Address, Phone, Email, 4);
                 createAccount(Email, Password,user_data);
             }
         });

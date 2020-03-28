@@ -40,7 +40,7 @@
 
 
                     <EditText
-                        android:id="@+id/ename"
+                        android:id="@+id/ename23"
                         android:layout_width="wrap_content"
                         android:layout_height="wrap_content"
                         android:layout_gravity="center_horizontal"

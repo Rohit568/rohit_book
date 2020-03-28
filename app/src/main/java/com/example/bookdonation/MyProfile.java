@@ -39,7 +39,7 @@ public class MyProfile extends AppCompatActivity {
         setContentView(R.layout.activity_my_profile);
         getSupportActionBar().setTitle("Profile");
 
-        t1 = findViewById(R.id.ename);
+        t1 = findViewById(R.id.ename23);
         t2 = findViewById(R.id.eemail);
         t3 = findViewById(R.id.emob);
         t4 = findViewById(R.id.eaddress);
@@ -47,7 +47,7 @@ public class MyProfile extends AppCompatActivity {
 
 
         String uid = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference("Users").child(uid);
+        DatabaseReference dbref = FirebaseDatabase.getInstance().getReference().child("Users").child(uid);
         dbref.addValueEventListener(new ValueEventListener() {
             UserDetails pd = null;
             @Override
@@ -74,12 +74,12 @@ public class MyProfile extends AppCompatActivity {
 
 
     private void updateUi(UserDetails pd) {
-
+        Log.d("insideprofile",pd.getName()+" "+pd.getAddress()+"  j");
         t1.setText(pd.getName());
         t2.setText(pd.getEmail_id());
         t3.setText(pd.getPhone_number());
         t4.setText(pd.getAddress());
-        t5.setText(pd.getCredit());
+        t5.setText(pd.getCredit()+"");
     }
 
     public boolean onCreateOptionsMenu(Menu menu) {

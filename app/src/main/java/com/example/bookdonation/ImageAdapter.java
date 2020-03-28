@@ -48,7 +48,7 @@ public class ImageAdapter extends RecyclerView.Adapter<ImageAdapter.ImageViewHol
     public void onBindViewHolder(@NonNull ImageViewHolder holder, int position) {
          Upload uploadCurrent = mUploads.get(position);
          holder.nameAdapter.setText(uploadCurrent.getName());
-         Picasso.with(mContext).load(uploadCurrent.getImageUrl()).placeholder(R.mipmap.ic_launcher).fit().centerCrop().into(holder.imageAdapter);
+         Picasso.with(mContext).load(uploadCurrent.getImageurl()).placeholder(R.mipmap.ic_launcher).fit().centerCrop().into(holder.imageAdapter);
 
     }
 

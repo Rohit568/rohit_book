@@ -69,7 +69,7 @@ public class Register extends AppCompatActivity {
         // Write a message to the database
         FirebaseDatabase database = FirebaseDatabase.getInstance();
         String currentuser = FirebaseAuth.getInstance().getCurrentUser().getUid();
-        DatabaseReference myRef = database.getReference("Users").child(currentuser);
+        DatabaseReference myRef = database.getReference().child("Users").child(currentuser);
         myRef.setValue(user_data);
     }
 

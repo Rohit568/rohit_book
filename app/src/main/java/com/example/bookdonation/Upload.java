@@ -5,45 +5,51 @@ import java.util.jar.Attributes;
 public class Upload {
 
 
-    String Name;
-    String ImageUrl;
+    String name;
+    String imageurl;
     String phone_no;
 
     public Upload() {
 
     }
 
-    public Upload(String name, String images, String phon) {
-        if (name.trim().equals("")) {
-            name = "No name";
-        }
-        Name = name;
-        ImageUrl = images;
-        this.phone_no = phon;
+    public Upload(String name, String imageurl, String phone_no) {
+        this.name = name;
+        this.imageurl = imageurl;
+        this.phone_no = phone_no;
     }
 
     public String getName() {
-        return Name;
-    }
-
-
-    public String getImageUrl() {
-        return ImageUrl;
-    }
-
-
-    public String getPhone_No() {
-        return phone_no;
+        return name;
     }
 
     public void setName(String name) {
-        Name = name;
+        this.name = name;
     }
 
+    public String getImageurl() {
+        return imageurl;
+    }
 
+    public void setImageurl(String imageurl) {
+        this.imageurl = imageurl;
+    }
 
-    public void setImageUrl(String imageUrl) {
-        ImageUrl = imageUrl;
+    public String getPhone_no() {
+        return phone_no;
+    }
+
+    public void setPhone_no(String phone_no) {
+        this.phone_no = phone_no;
+    }
+
+    @Override
+    public String toString() {
+        return "Upload{" +
+                "name='" + name + '\'' +
+                ", imageurl='" + imageurl + '\'' +
+                ", phone_no='" + phone_no + '\'' +
+                '}';
     }
 }
 

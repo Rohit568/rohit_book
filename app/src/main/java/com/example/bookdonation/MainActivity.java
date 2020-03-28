@@ -52,22 +52,22 @@ public class MainActivity extends AppCompatActivity {
         mRecyclerVeiw.setHasFixedSize(true);
         mRecyclerVeiw.setLayoutManager(new LinearLayoutManager(this));
         mUploads = new ArrayList<>();
-        mDataref = FirebaseDatabase.getInstance().getReference("images");
+        mDataref = FirebaseDatabase.getInstance().getReference().child("images");
         phoneNo = "7276688141";
         message ="Hey! I really need this book, just answer me";
         mDataref.addValueEventListener(new ValueEventListener() {
             @Override
             public void onDataChange(@NonNull DataSnapshot dataSnapshot) {
-
                 for (DataSnapshot postSnapshot : dataSnapshot.getChildren()) {
 
                     Upload upload = postSnapshot.getValue(Upload.class);
                     Log.d("rohitsachin", postSnapshot.getKey() + "rr2");
                     mUploads.add(upload);
+                    Log.d("sachinsachin",upload.toString());
                 }
                 Log.d("rohitsachin","check2");
                 for(Upload u:mUploads){
-                    Log.d("rohi",u.getPhone_No()+"");
+                    Log.d("rohi",u.getPhone_no()+"");
                    // phoneNo = u.getPhone_No();
                     message = "I need your book named  "+u.getName()+" !!Please just contact me.. ";
                     Log.d("rohit1", phoneNo+"");

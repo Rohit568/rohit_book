@@ -46,6 +46,7 @@ public class UploadBook extends AppCompatActivity {
     private FirebaseAuth uploadAuth;
     private String mobi_num;
     String uid,title;
+    boolean isValid;
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
@@ -59,6 +60,7 @@ public class UploadBook extends AppCompatActivity {
         mStorageRef = FirebaseStorage.getInstance().getReference();
         uid=FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
         progressBar=findViewById(R.id.progressBar);
+        isValid = checkInputs(mImageName.getText().toString(), mmob.getText().toString());
         mChooseButton.setOnClickListener(new View.OnClickListener() {
             @Override
             public void onClick(View v) {
@@ -96,50 +98,53 @@ public class UploadBook extends AppCompatActivity {
     private void uploadfile() {
         mobi_num=mmob.getText().toString();
         title=mImageName.getText().toString();
-        try {
-            Log.d("uploadfile", "just start");
-            if (mImageUri != null) {
 
-                progressBar.setVisibility(View.VISIBLE);
-                disableAll();
-                final StorageReference riversRef = mStorageRef.child("images/"+ UUID.randomUUID().toString());
-                riversRef.putFile(mImageUri)
-                        .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
-                            @Override
-                            public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
-                                // Get a URL to the uploaded content
-                                Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
-                                while (!downloadUrl.isSuccessful());
-                                Uri downloadUrl2 = downloadUrl.getResult();
-                                Toast
-                                        .makeText(UploadBook.this,
-                                                "Image Uploaded!!",
-                                                Toast.LENGTH_SHORT)
-                                        .show();
-                                //String uid=FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
-                                String dbref= FirebaseDatabase.getInstance().getReference("images").push().getKey();
-                                Upload up_obj=new Upload(title,downloadUrl2.toString(),mobi_num);
-                                FirebaseDatabase.getInstance().getReference("images").child(dbref).setValue(up_obj);
-                                progressBar.setVisibility(View.INVISIBLE);
-                                enableAll();
-                                startActivity(new Intent(UploadBook.this,MainActivity.class));
-                            }
-                        })
-                        .addOnFailureListener(new OnFailureListener() {
-                            @Override
-                            public void onFailure(@NonNull Exception exception) {
-                                // Handle unsuccessful uploads
-                                // ...
-                                Log.d("exception inside", exception.toString());
-                                progressBar.setVisibility(View.INVISIBLE);
-                                enableAll();
-                            }
-                        });
+            try {
+                Log.d("uploadfile", "just start");
+                if (mImageUri != null) {
 
+                    progressBar.setVisibility(View.VISIBLE);
+                    disableAll();
+                    final StorageReference riversRef = mStorageRef.child("images/" + UUID.randomUUID().toString());
+                    riversRef.putFile(mImageUri)
+                            .addOnSuccessListener(new OnSuccessListener<UploadTask.TaskSnapshot>() {
+                                @Override
+                                public void onSuccess(UploadTask.TaskSnapshot taskSnapshot) {
+                                    // Get a URL to the uploaded content
+                                    Task<Uri> downloadUrl = taskSnapshot.getMetadata().getReference().getDownloadUrl();
+                                    while (!downloadUrl.isSuccessful()) ;
+                                    Uri downloadUrl2 = downloadUrl.getResult();
+                                    Toast
+                                            .makeText(UploadBook.this,
+                                                    "Image Uploaded!!",
+                                                    Toast.LENGTH_SHORT)
+                                            .show();
+                                    Log.d("upload", "nahien");
+                                    //String uid=FirebaseAuth.getInstance().getCurrentUser().getUid().toString();
+                                    String dbref = FirebaseDatabase.getInstance().getReference("images").push().getKey();
+                                    Upload up_obj = new Upload(title, downloadUrl2.toString(), mobi_num);
+                                    FirebaseDatabase.getInstance().getReference("images").child(dbref).setValue(up_obj);
+                                    progressBar.setVisibility(View.INVISIBLE);
+                                    enableAll();
+                                    startActivity(new Intent(UploadBook.this, MainActivity.class));
+                                }
+                            })
+                            .addOnFailureListener(new OnFailureListener() {
+                                @Override
+                                public void onFailure(@NonNull Exception exception) {
+                                    // Handle unsuccessful uploads
+                                    // ...
+                                    Log.d("exception inside", exception.toString());
+                                    progressBar.setVisibility(View.INVISIBLE);
+                                    enableAll();
+                                }
+                            });
+
+                }
+            } catch (Exception e) {
+                Log.d("uploadfile", "atend" + e.toString());
             }
-        }catch (Exception e){
-            Log.d("uploadfile","atend"+e.toString());
-        }
+
     }
 
 
@@ -157,6 +162,13 @@ public class UploadBook extends AppCompatActivity {
             mImageUri=data.getData();
             mImage.setImageURI(mImageUri);
         }
+    }
+    private boolean checkInputs(String name , String phone){
+        if(name.equals("") || phone.equals("")){
+            Toast.makeText(UploadBook.this, "All fields must be filled out.", Toast.LENGTH_SHORT).show();
+            return false;
+        }
+        return true;
     }
 
 }
